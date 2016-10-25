@@ -1,0 +1,6 @@
+# Eclipse files
+.project
+.settings
+
+#node modules
+node_modules
