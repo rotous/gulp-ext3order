@@ -1,7 +1,7 @@
 {
   "name": "gulp-ext3order",
   "version": "0.1.0",
-  "description": "A gulp module that will order javascript files that use ExtJS 3.2",
+  "description": "A gulp plugin that will order javascript files that use ExtJS 3.4",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,22 +12,21 @@
   },
   "keywords": [
     "gulp",
+    "gulpplugin",
     "extjs",
     "extjs3",
-    "extjs3.2"
+    "extjs3.4"
   ],
   "author": "Ronald Toussaint <ronald@dekolos.com> (https://github.com/rotous/)",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "dependencies": {
+    "console-augmenter": "^0.0.3",
     "event-stream": "^3.3.0",
     "gulp-util": "^3.0.4",
-    "topo-sort": "^1.0.0"
+    "path": "^0.12.7",
+    "toposort": "^2.0.2"
   },
-  "devDependencies": {
-    "chai": "^2.3.0",
-    "mocha": "latest",
-    "path": "^0.11.14"
-  },
+  "devDependencies": {},
   "bugs": {
     "url": "https://github.com/rotous/gulp-ext3order/issues"
   },
