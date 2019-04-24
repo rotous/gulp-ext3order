@@ -21,9 +21,8 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "console-augmenter": "^0.0.3",
-    "event-stream": "^3.3.0",
-    "gulp-util": "^3.0.4",
-    "path": "^0.12.7",
+    "event-stream": "^4.0.1",
+    "plugin-error": "^1.0.1",
     "toposort": "^2.0.2"
   },
   "devDependencies": {},

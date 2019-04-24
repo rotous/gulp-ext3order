@@ -6,8 +6,7 @@ console.logLevel(console.LL_LOG);
 const path = require('path');
 const es = require('event-stream');
 const toposort = require('toposort');
-const gutil = require('gulp-util');
-const PluginError = gutil.PluginError;
+const PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-ext3order';
 
