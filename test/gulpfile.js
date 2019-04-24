@@ -1,30 +1,28 @@
 "use strict"
 
-var gulp = require('gulp');
-var del = require('del');
-var order = require('gulp-ext3order');
-var concat = require('gulp-concat');
+const {series, src, dest} = require('gulp');
+const del = require('del');
+const order = require('gulp-ext3order');
+const concat = require('gulp-concat');
 
 /*
- * The default task that will be run if gulp is run without any additional parameters
+ * The clean task. Will delete the deploy directory
  */
-gulp.task('default', ['clean', 'scripts-concat'], function() {
-});
-
-
-gulp.task('clean', function(){
-	return del([
-		'deploy'
-	]);
-});
+const clean = () => del(['deploy']);
+exports.clean = clean;
 
 /*
  * A task to reorder and concatenate our javascript files
  */
-gulp.task('scripts-concat', function(){
-	return gulp.src(['mocks/**/*.js'])
+const scriptsConcat = () =>
+	src(['mocks/**/*.js'])
 	    .pipe(order())
 	    .pipe(concat('debug.js'))
-	    .pipe(gulp.dest('./deploy/'))
-});
+	    .pipe(dest('./deploy/'));
+exports['script-concat'] = scriptsConcat;
 
+/*
+ * The default task that will be run if gulp is run without any additional parameters
+ */
+const defaultTask = series(clean, scriptsConcat);
+exports.default = defaultTask;
