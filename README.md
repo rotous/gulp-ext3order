@@ -13,20 +13,21 @@ npm install --save-dev gulp-ext3order
 Use the plugin in your gulp pipeline as any other plugin:
 
 ```
-const gulp = require('gulp');
+const {src, dest} = require('gulp');
 const order = require('gulp-ext3order');
 const concat = require('gulp-concat');
 
 /*
  * A task to reorder and concatenate our javascript files
  */
-gulp.task('scripts-concat', function(){
-    return gulp.src(['js/**/*.js'])   // use all js files found in the js dir and subdirs
+const scriptsConcat = () =>
+    src(['js/**/*.js'])               // use all js files found in the js dir and subdirs
         .pipe(order())                // reorder the files according to their dependencies
         .pipe(concat('debug.js'))     // concat the files
-        .pipe(gulp.dest('./deploy/')) // save the output to the deploy directory
-});
+        .pipe(dest('./deploy/'));     // save the output to the deploy directory
 
+// export the task as the default taks, so we can run `gulp` to run this task
+exports.default = scriptConcat;
 ```
 
 ## Class definitions
